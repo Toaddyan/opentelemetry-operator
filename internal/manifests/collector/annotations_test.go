@@ -31,7 +31,8 @@ func TestDefaultAnnotations(t *testing.T) {
 			Namespace: "my-ns",
 		},
 		Spec: v1alpha1.OpenTelemetryCollectorSpec{
-			Config: "test",
+			Config:                       "test",
+			PrometheusDefaultAnnotations: true,
 		},
 	}
 

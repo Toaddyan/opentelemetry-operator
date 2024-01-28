@@ -26,10 +26,12 @@ func Annotations(instance v1alpha1.OpenTelemetryCollector) map[string]string {
 	// new map every time, so that we don't touch the instance's annotations
 	annotations := map[string]string{}
 
-	// set default prometheus annotations
-	annotations["prometheus.io/scrape"] = "true"
-	annotations["prometheus.io/port"] = "8888"
-	annotations["prometheus.io/path"] = "/metrics"
+	if instance.Spec.PrometheusDefaultAnnotations {
+		// set default prometheus annotations
+		annotations["prometheus.io/scrape"] = "true"
+		annotations["prometheus.io/port"] = "8888"
+		annotations["prometheus.io/path"] = "/metrics"
+	}
 
 	// allow override of prometheus annotations
 	if nil != instance.Annotations {

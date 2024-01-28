@@ -289,6 +289,8 @@ type OpenTelemetryCollectorSpec struct {
 	// This is only applicable to Deployment mode.
 	// +optional
 	DeploymentUpdateStrategy appsv1.DeploymentStrategy `json:"deploymentUpdateStrategy,omitempty"`
+	// PrometheusDefaultAnnotations sets the default annotations that each pod will have
+	PrometheusDefaultAnnotations bool `json:"prometheusConfig,omitempty"`
 }
 
 // OpenTelemetryTargetAllocator defines the configurations for the Prometheus target allocator.
